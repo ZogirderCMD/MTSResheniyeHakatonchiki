@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>Тест фляги</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/mystyle.css') }}">
+</head>
+<body>
+	<h2>Выбери, что нужно</h2>
+	<table border=1>
+		<tr>
+			{% for i in k %}
+				<td>
+					<h4>{{ i }}</h4>
+				</td>
+			{% endfor %}
+		</tr>
+		<tr>
+			<form method="post" action="/submit">
+				{% for i in a %}
+					<td>
+						<select name="{{ i }}">
+							{% for j in a[i] %}
+								<option>{{ j }}</option>
+							{% endfor %}
+						</select>
+					</td>
+					{% endfor %}
+				<td>
+					<input type="submit" value="Submit">
+				</td>
+			</form>
+		</tr>
+	</table>
+	{% if spis != [] and spis != 1%}
+		<table border="1">
+			<tr>
+			{% for i in hds %}
+					<th>{{ i }}</th>
+			{% endfor %}
+			</tr>
+			{% for i in spis %}
+				<tr>
+					{% for j in i %}
+						<th>{{ j }}</th>
+					{% endfor %}
+				</tr>
+			{% endfor %}
+		</table>
+	{% elif spis == 1 %}
+		<h1>Выберите нужное</h1>
+	{% else %}
+		<h1> Ничего не найдено! </h1><br>
+		<img src="{{ url_for('static', filename='images/img.png') }}">
+	{% endif %}
+</body>
+</html>

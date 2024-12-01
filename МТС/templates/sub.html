@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>Тест фляги</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/mystyle.css') }}">
+</head>
+<body>
+	{% if spis != [] %}
+		<table border="1">
+			<tr>
+			{% for i in hds %}
+					<th>{{ i }}</th>
+			{% endfor %}
+			</tr>
+			{% for i in spis %}
+				<tr>
+					{% for j in i %}
+						<th>{{ j }}</th>
+					{% endfor %}
+				</tr>
+			{% endfor %}
+		</table>
+	{% else %}
+		<h1> Ничего не найдено! </h1><br>
+		<img src="{{ url_for('static', filename='images/img.png') }}">
+	{% endif %}
+</body>
+</html>

@@ -1,0 +1,17 @@
+<html>
+<head>
+<title>Тест фляги</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/mystyle.css') }}">
+</head>
+<body>
+	{% for i in a %}
+		<table border="1">
+		{% for j in i %}
+			<tr>
+				<th>{{ j }}</th>
+			</tr>
+		{% endfor %}
+		<table><br>
+	{% endfor %}
+</body>
+</html>
